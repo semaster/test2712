@@ -1,21 +1,23 @@
 <?php 
 namespace Controller;
-
-if(!defined("IN_RULE")) die ("Oops");
-
+/*
+|--------------------------------------------------------------------------
+| Controller for SQL examples page
+|--------------------------------------------------------------------------
+*/
 class sqlController extends Controller 
 {
 
     public function init() {
-    	//создаем "инстанс" модели
+    	//init model instance
     	$this->InstanceModel = new $this->ModelName;
-    	// это переменная используется скрытия блока с информацией в зависимости того получены ли данные
+    	// use panelVisibility variable in template to hide some fields if not POST method
     	$data['panelVisibility'] = 'hidden';
-    	// получение данных в соответствии с задание для запроса 1
+    	// receive data in accordance with the task to query 1
     	if ($_POST['sql'] == 1) $data = $this->InstanceModel->getSQL1($_POST['email']);
-    	// получение данных в соответствии с задание для запроса 2
+    	// receive data in accordance with the task to query 2
     	if ($_POST['sql'] == 2) $data = $this->InstanceModel->getSQL2($_POST['email']);
-    	// выводим представление
+    	// output to _layout template
         $this->InstanceView->generate('_layout', $this->ViewName, $data);
     }
 }

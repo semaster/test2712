@@ -1,18 +1,19 @@
 <?php
 namespace Model;
 
-if(!defined("IN_RULE")) die ("Oops");
-
 class TransactionModel extends Model {
     /* 
-    * @var array перечень поддерживаемых методов для запроса.
+    * @var array request methods
     */
-
     protected $methods = array('GET','POST');
     /*
-    * выполняем проверки: соответствие заданным методам запроса, правильность емейла, количества и токена
-    * в этом примере токен задан как единственное значение равное mytoken
+    |--------------------------------------------------------------------------
+    | make some checks
+    |--------------------------------------------------------------------------
+    | Execute check: specified request method, email, the number(amount) and the token
+    | In this example, the token is given as a single value equal 'mytoken'
     */
+
     public function check($params) { 
         $json = (in_array($_SERVER['REQUEST_METHOD'], $this->methods)) ? NULL  
                 : json_encode(array('error_message' => 'Wrong request method!', 'status' => 'error'));
@@ -24,7 +25,11 @@ class TransactionModel extends Model {
                 : json_encode(array('error_message' => 'Wrong token!', 'status' => 'error'));
         return $json;
     }
-
+    /*
+    |--------------------------------------------------------------------------
+    | Generate fake response (due to task)
+    |--------------------------------------------------------------------------
+    */
     public function process($params) {
 
         $data = \FakeData::status();
@@ -34,7 +39,11 @@ class TransactionModel extends Model {
         return $data['json'];
 
     }
-
+    /*
+    |--------------------------------------------------------------------------
+    | Just log transaction to DB
+    |--------------------------------------------------------------------------
+    */
     private function logTransaction ($params, $data) {
         $dblink = \DB::getInstance()->getConnection();
         if ($stm = $dblink->prepare("INSERT INTO transactions (id,email,amount,status,create_date) VALUES (?,?,?,?,NOW())")) {

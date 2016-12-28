@@ -2,8 +2,7 @@
 
 <header>
     <div class="container" style="color:#777;">
-<!-- Для того чтобы на вашем сервере корректно отрабатывал AJAX - вам необходимо изменить
-в следующей строке этого файла значение data-create-url соответственно вашему домену -->    
+<!-- In order to run correctly AJAX - you need to change in line 7 of this file the value of data-create-url -->    
         <div class="message row" data-create-url="http://test2712.in.ua/transaction/" data-vis="<?php echo $panelVisibility; ?>">
             <div class="col-lg-12">
                 <div class="panel-group">

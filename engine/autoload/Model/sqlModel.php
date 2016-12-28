@@ -1,17 +1,16 @@
 <?php
 namespace Model;
 
-if(!defined("IN_RULE")) die ("Oops");
-
 class sqlModel extends Model {
-
     /*
-    * пример SQL 1 запроса описанного в задании
+    |--------------------------------------------------------------------------
+    | SQL 1 example in action
+    |--------------------------------------------------------------------------
+    | Fetch data from DB due to described in task SQL 1
     */
     public function getSQL1($email) { 
-        //получаем соединение с БД
         $dblink = \DB::getInstance()->getConnection();
-        //подготавливаем и выполняем запрос
+
         if ($stm = $dblink->prepare("SELECT SUM(amount) AS sum FROM transactions 
             WHERE  email=? AND YEAR(create_date) = YEAR(NOW()) AND MONTH(create_date) = MONTH(NOW()) 
             GROUP BY email ")) {
@@ -26,7 +25,10 @@ class sqlModel extends Model {
         return $data;
     }
     /*
-    * пример SQL 2 запроса описанного в задании
+    |--------------------------------------------------------------------------
+    | SQL 2 example in action
+    |--------------------------------------------------------------------------
+    | Fetch data from DB due to described in task SQL 2
     */
     public function getSQL2($email) { 
 

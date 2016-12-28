@@ -1,21 +1,27 @@
 <?php 
 namespace Controller;
-
-if(!defined("IN_RULE")) die ("Oops");
-
+/*
+|--------------------------------------------------------------------------
+| Controller for API point
+|--------------------------------------------------------------------------
+*/
 class TransactionController extends Controller 
 {
 
     public function init() {
-
+    	// init model instance
         $this->InstanceModel = new $this->ModelName;
-
-        //проверяем метод запроса, если не пост - тогда выдаем сообщение об ошибке.
+	    /*
+	    |--------------------------------------------------------------------------
+	    | make some checks
+	    |--------------------------------------------------------------------------
+	    | Execute check: specified request method, email, the number(amount) and the token
+	    | In this example, the token is given as a single value equal 'mytoken'
+	    */
        	$data['json'] = $this->InstanceModel->check($this->params);
-
-        //обрабатываем запрос, генерируем псевдо ответ. (при условии что предыдущие проверки прошли)
+        //get response
         if (is_null($data['json'])) $data['json'] = $this->InstanceModel->process($this->params);
-
+		// output to _json template
          $this->InstanceView->generate('_json', $this->ViewName, $data);
     }
 }

@@ -1,8 +1,16 @@
-<?php if(!defined("IN_RULE")) die ("Oops");
-    /*
-    * простая реализация синглтон архитектуры для использования одного подключения в пределах приложения
-    */
+<?php 
+/*
+|--------------------------------------------------------------------------
+| Singlton DB connection class
+|--------------------------------------------------------------------------
+| example of use - DB::getInstance()->getConnection();
+*/
 class DB {
+    /*
+    * @connection PDO object
+    * @instance self instance    
+    * @options array - connection options
+    */
     private $connection;
     private static $instance;
     private $options = array(
@@ -11,10 +19,19 @@ class DB {
                         PDO::ATTR_PERSISTENT => true 
     );
 
+    /*
+    |--------------------------------------------------------------------------
+    | getter for connection property
+    |--------------------------------------------------------------------------
+    */
     public function getConnection() {
         return $this->connection;
     } 
-
+    /*
+    |--------------------------------------------------------------------------
+    | make instance
+    |--------------------------------------------------------------------------
+    */
     public static function getInstance() {
         $dsn 	= "mysql:host=localhost;dbname=".DB_NAME.";";
         if (self::$instance === null) {
@@ -22,7 +39,11 @@ class DB {
         }
         return self::$instance;
     } 
-
+    /*
+    |--------------------------------------------------------------------------
+    | construct method
+    |--------------------------------------------------------------------------
+    */
     private function __construct($dsn, $user, $pass) {
         try {
             $this->connection = new PDO($dsn, $user, $pass, $this->options);
@@ -31,7 +52,11 @@ class DB {
             $this->connection = 'Connection failed';
         }	
     }
-
+    /*
+    |--------------------------------------------------------------------------
+    | destruct method
+    |--------------------------------------------------------------------------
+    */
     private function __desctruct() {
         $this->connection = NULL;
         self::$instance = NULL;

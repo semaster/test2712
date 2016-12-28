@@ -1,7 +1,11 @@
 <?php
 namespace Model;
 
-if(!defined("IN_RULE")) die ("Oops");
+/*
+|--------------------------------------------------------------------------
+| Just absract parent for models
+|--------------------------------------------------------------------------
+*/
 
 abstract class Model {
 

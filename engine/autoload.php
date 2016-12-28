@@ -1,14 +1,20 @@
 <?php
 /*
-    Данный пример автозагрузчика демонстрирует базовое использование функции spl_autoload_register
-    для регистрации собственных автозагрузчиков.
-    В данном примере это реализовано одной функцией, без создания классов и более громоздких конструкций.
-    Поиск файлов происходит в той же директории в которой размещается файл данного загрузчика.
+|--------------------------------------------------------------------------
+| IN_RULE - to control included files
+|--------------------------------------------------------------------------
+| Use IN_RULE to denie executing without including in "entry point"
 */
-
-//проверяем что вызов не исползуется напрямую без включения
 if(!defined("IN_RULE")) die ("Oops");
-// регистрируем свой автозагрузчик
+/*
+|--------------------------------------------------------------------------
+| Application Name
+|--------------------------------------------------------------------------
+| This example demonstrates the basic usage of the autoloader spl_autoload_register function
+| to register our own autoloaders.
+| In this example, a single function is implemented without creating classes and more bulky structures.
+| File search takes place in the same directory that houses the file of the boot loader.
+*/
 spl_autoload_register ('autoload');
 
 function autoload ($className) {

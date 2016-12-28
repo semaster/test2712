@@ -1,16 +1,18 @@
 <?php 
 namespace Controller;
-
-if(!defined("IN_RULE")) die ("Oops");
-
+/*
+|--------------------------------------------------------------------------
+| Controller for main (index) page
+|--------------------------------------------------------------------------
+*/
 class IndexController extends Controller 
 {
 
     public function init() {
-    	//задание заголовка страницы - используется в шаблоне.
-    	// в остальных классах это будет упущено для лаконичности
+		// Set the page title - used in the template.
+	    // In other places it will be lost for brevity
         $data = array('pageTitle'   => 'REST API example');
-        // выводим представление
+        // output to _layout template
         $this->InstanceView->generate('_layout', $this->ViewName, $data);
     }
 }

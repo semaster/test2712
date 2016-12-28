@@ -1,19 +1,21 @@
 <?php 
 namespace Controller;
-
-if(!defined("IN_RULE")) die ("Oops");
-
+/*
+|--------------------------------------------------------------------------
+| Controller usage examples page
+|--------------------------------------------------------------------------
+*/
 class ExampleController extends Controller 
 {
 
     public function init() {
-    	//создаем "инстанс" модели
+    	//init model instance
     	$this->InstanceModel = new $this->ModelName;
-    	// это переменная используется скрытия блока с информацией в зависимости того получены ли данные
+    	// use panelVisibility variable in template to hide some fields if not POST method
     	$data['panelVisibility'] = 'hidden';
-    	//получаем данные из модели в случае "пост"-запроса
+    	// obtain data from the model in the case of "post" requests
     	if ($_POST) $data = $this->InstanceModel->getData();
-    	// выводим представление
+    	// output to _layout template
         $this->InstanceView->generate('_layout', $this->ViewName, $data);
     }
 }
