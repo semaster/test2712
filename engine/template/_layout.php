@@ -50,9 +50,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="page-scroll"><a href="/transaction/aa@mail.com/11/token">rest api</a></li>
-                    <li class="page-scroll"><a href="/example">Пример использования api</a></li>
-                    <li class="page-scroll"><a href="/sql">Примеры SQL запросов</a></li>
+                    <li class="page-scroll"><a href="/transaction/aa@mail.com/11/token">PLAIN REST API</a></li>
+                    <li class="page-scroll"><a href="/example">Showcases</a></li>
+                    <li class="page-scroll"><a href="/sql">SQL demonstration</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

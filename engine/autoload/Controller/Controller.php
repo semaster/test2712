@@ -1,8 +1,10 @@
 <?php 
 namespace Controller;
-
-if(!defined("IN_RULE")) die ("Oops");
-
+/*
+|--------------------------------------------------------------------------
+| abstract Controller 
+|--------------------------------------------------------------------------
+*/
 abstract class Controller 
 {
     public $ModelName;
@@ -12,8 +14,7 @@ abstract class Controller
     public $params;
     public $message;
 
-    // при создании обекта "инжектим" из роутинга названия используемых классов: контролер, модель, представление
-    // экземпляр представления создается тут же. Экземплеяр модели создается в контроллере по мере надобности
+    // init properties with routed values
     public function __construct($route = [])    {
         $this->ModelName   = $route['model'];
         $this->ViewName    = $route['view'];
@@ -21,6 +22,5 @@ abstract class Controller
         $this->InstanceView = new \View\View();
     }
 
-    // этот абстрактный метод используется для "инициализации" приложения при запуске
     abstract public function init();
 }

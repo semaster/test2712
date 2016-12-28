@@ -37,13 +37,13 @@
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-default">Отправить запрос используя сURL</button>
+                      <button type="submit" class="btn btn-default">Send using сURL</button>
                     </div>
                   </div>
                 </form>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <button type="button" class="btn btn-default button-ajax">Отправить запрос используя AJAX</button>
+                      <button type="button" class="btn btn-default button-ajax">Send using AJAX</button>
                     </div>
                   </div>
             </div>

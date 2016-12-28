@@ -16,11 +16,11 @@ class sqlModel extends Model {
             GROUP BY email ")) {
             $stm->execute(array($email));$row = $stm->fetch(); $stm = NULL;
             $data['panelVisibility'] = '';
-            $data['messageHead']     = 'Сумма платежей выбранных по идентификатору (почта) за последний месяц:';
+            $data['messageHead']     = 'response for test SQL 1:';
             $data['messageBody']     = $row['sum'];
         } 
 
-        if (! \Filter::email($email)) $data['messageBody']     = 'Укажите емейл';
+        if (! \Filter::email($email)) $data['messageBody']     = 'enter email';
 
         return $data;
     }
@@ -41,13 +41,13 @@ class sqlModel extends Model {
             $stm->execute(array($email));$rows = $stm->fetchAll(); $stm = NULL;
         } 
         $data['panelVisibility'] = '';
-        $data['messageHead']     = 'Сумма платежей выбранных по идентификатору (почта) по дням недели:';
+        $data['messageHead']     = 'response for test SQL 2:';
         $data['messageBody']     = 'email => ' . $email . '<br>';
         foreach ($rows as $row) {
             $data['messageBody']     .= $row['weekday'] . ' => ' . $row['revenue'] . '<br>'; 
         }
 
-        if (! \Filter::email($email)) $data['messageBody']     = 'Укажите емейл';        
+        if (! \Filter::email($email)) $data['messageBody']     = 'enter email';        
 
         return $data;
     }

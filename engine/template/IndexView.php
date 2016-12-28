@@ -7,9 +7,9 @@
                 <div class="col-lg-12">
                     <img class="img-responsive" src="/assets/img/app.png" alt="">
                     <div class="intro-text">
-                        <span class="name">тестовое задание</span>
+                        <span class="name">Test Showcase</span>
                         <hr class="star-light">
-                        <span class="skills">пример реализации REST API</span>
+                        <span class="skills">simple REST API</span>
                     </div>
                 </div>
             </div>
@@ -28,10 +28,10 @@
                             <span class="fix-editor">&nbsp;</span>
                         </i>
                     </div>
-                    <h4>Пример использования</h4>
+                    <h4>Showcase</h4>
                     <hr>
                     <p class="text-justify">
-                        <a class="btn btn-primary" href="/example" role="button">Нажимаем и смотрим</a>
+                        <a class="btn btn-primary" href="/example" role="button">Go to examples page</a>
                     </p>
                 </div>
 
@@ -41,7 +41,7 @@
                             <span class="fix-editor">&nbsp;</span>
                         </i>
                     </div>
-                    <h4>Как это работает?</h4>
+                    <h4>How it works?</h4>
                     <hr>
                     <p class="text-justify">
                         The method should perform a fake logging of money transactions and return transaction status.

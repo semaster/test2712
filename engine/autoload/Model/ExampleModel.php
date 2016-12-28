@@ -19,7 +19,7 @@ class ExampleModel extends Model {
         // procees response
         $data['messageHead']     = $buff['status'];
         $data['messageBody']     = $buff['error_message'];
-        if (isset($buff['id'])) $data['messageBody']     = 'ID операции: ' . $buff['id'];
+        if (isset($buff['id'])) $data['messageBody']     = 'transaction ID: ' . $buff['id'];
 
         return $data;
     }
