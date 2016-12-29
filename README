@@ -63,7 +63,7 @@ SQL statements described in item 3 of the task can be found in the class sqlMode
 
 here it is plain:
  - SELECT SUM(amount) AS sum FROM transactions 
-            WHERE  email=? AND YEAR(create_date) = YEAR(NOW()) AND MONTH(create_date) = MONTH(NOW()) 
+            WHERE  email=? AND YEAR(create_date) = YEAR(NOW()) AND MONTH(create_date) = MONTH(NOW())  AND status='approved'
             GROUP BY email
 - SELECT date_format(create_date, '%W' ) AS weekday, sum(amount) AS revenue 
             FROM transactions WHERE email=? AND status='approved'

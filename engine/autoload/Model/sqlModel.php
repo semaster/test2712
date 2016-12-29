@@ -12,7 +12,7 @@ class sqlModel extends Model {
         $dblink = \DB::getInstance()->getConnection();
 
         if ($stm = $dblink->prepare("SELECT SUM(amount) AS sum FROM transactions 
-            WHERE  email=? AND YEAR(create_date) = YEAR(NOW()) AND MONTH(create_date) = MONTH(NOW()) 
+            WHERE  email=? AND YEAR(create_date) = YEAR(NOW()) AND MONTH(create_date) = MONTH(NOW())  AND status='approved'
             GROUP BY email ")) {
             $stm->execute(array($email));$row = $stm->fetch(); $stm = NULL;
             $data['panelVisibility'] = '';
